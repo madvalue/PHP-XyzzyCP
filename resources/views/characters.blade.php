@@ -19,7 +19,7 @@
                                 Niezaakceptowana
                             @endif
                         </div>
-                        <a href="{{ env('APP_URL') }}/character/{{ $character->id }}" class="btn btn-outline-secondary w-100">Szczegóły</a>
+                        <a href="{{ env('APP_URL') }}/characters/{{ $character->id }}" class="btn btn-outline-secondary w-100">Szczegóły</a>
                     </h6>
                 </div>
             </div>

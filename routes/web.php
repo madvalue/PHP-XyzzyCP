@@ -18,6 +18,7 @@ Route::get("/error", "MainController@error");
 Route::get("/characters", "CharactersController@list");
 Route::get("/characters/new", "CharactersController@new");
 Route::post("/characters/new", "CharactersController@new_process");
+Route::get("/characters/{charid}", "CharactersController@details");
 
 // Login
 Route::get("/login", "LoginController@show");

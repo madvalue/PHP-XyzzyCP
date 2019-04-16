@@ -88,8 +88,25 @@
             ];
 
             $validator = Validator::make($request->all(), $rules, $messages);
-            if ($validator->fails()) return redirect('/characters/new')->withErrors($validator)->withInput();
+            if ($validator->fails()) return redirect("characters/new")->withErrors($validator)->withInput();
 
-            return redirect("/characters/new")->withErrors("Testowy błędzik essa");
+            $name = $request->input("name");
+            $lastname = $request->input("lastname");
+            $birthdate = $request->input("birthdate");
+            $skin = $request->input("skin");
+
+            $db_create = Characters::new($name, $lastname, $birthdate, $race, $skin, $request->session()->get("id"));
+            if ($db_create->success == false) return redirect("characters/new")->withErrors($db_create->message)->withInput();
+
+            return redirect("characters/new")->with("success_message", "Postać została utworzona pomyślnie");
+        }
+
+        public function details(Request $request, $char_id) {
+            if (!$request->session()->has("id")) return redirect("login")->withErrors("Dostęp do tej sekcji mają tylko zalogowani");
+
+            $details = Characters::details($char_id);
+            if ($details->success ===false) return redirect("characters")->withErrors($details->message);
+
+            return view("characters_details", [ "page" => "characters", "data" => $details->data ]);
         }
     }

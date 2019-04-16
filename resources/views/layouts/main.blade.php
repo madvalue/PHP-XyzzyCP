@@ -59,6 +59,12 @@
                     </ul>
                 </div>
                 <div class="col main">
+                    @if($errors->any())
+                        <div class="alert alert-danger" role="alert">{{ $errors->first() }}</div>
+                    @elseif(session("success_message"))
+                        <div class="alert alert-success" role="alert">{{ session("success_message") }}</div>
+                    @endif
+                    
                     @yield('content')
                     <br><br>
                 </div>

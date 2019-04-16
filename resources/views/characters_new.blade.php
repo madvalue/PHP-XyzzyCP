@@ -22,13 +22,6 @@
                     <h3>Tworzenie postaci</h3>
                 </div>
             </div>
-            <div class="row mb-3">
-                <div class="col-md-6 m-auto">
-                    @if($errors->any())
-                        <div class="alert alert-danger" role="alert">{{ $errors->first() }}</div>
-                    @endif
-                </div>
-            </div>
             <div class="row">
                 <div class="col-md-3 ml-auto mb-3">
                     <label for="name">Imię postaci</label>
