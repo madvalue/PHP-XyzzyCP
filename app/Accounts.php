@@ -39,6 +39,30 @@
             }
         }
 
+        // Sprawdzanie poprawności sesji
+        public static function validateSession($session) {
+            try {
+                $account = DB::select("SELECT id FROM lss_users WHERE id=:user_id AND hash=:hash", [ "user_id" => $session->get("id"), "hash" => $session->get("hash") ]);
+                if (count($account) < 1) {
+                    self::logout($session);
+                    return (object)[ "success" => false, "logout" => true, "message" => "Podejrzenie podrobienia sesji" ];
+                } elseif (count($account) > 1) {
+                    self::logout($session);
+                    return (object)[ "success" => false, "logout" => true, "message" => "Znaleziono więcej niż jedno konto pasujące do klucza" ];
+                } else return (object)[ "success" => true ];
+            } catch (\Exception $e) {
+                return (object)[ "success" => false, "logout" => false, "message" => "Wystąpił problem podczas weryfikowania sesji" ];
+            }
+        }
+
+        // Wylogowywanie
+        public static function logout($session) {
+            if (!$session->has("id")) return false;
+
+            $session->forget([ "id", "username", "hash" ]);
+            return true;
+        }
+
         // Hashowanie hasła
         private static function hashPassword($username, $password) {
             return md5(strtolower($username) . "MRFX_01" . $password);

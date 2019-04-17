@@ -50,7 +50,7 @@
                 $fingerprint = md5(rand());
                 $fingerprint = substr($fingerprint, 0, 16);
 
-                DB::insert("INSERT INTO lss_characters (imie, nazwisko, data_urodzenia, rasa, skin, userid, fingerprint, created, stylewalki) VALUES (:name, :lastname, :birthdate, :race, :skin, :userid, :fingerprint, NOW(), '')", [ 
+                DB::insert("INSERT INTO lss_characters (accepted, imie, nazwisko, data_urodzenia, rasa, skin, userid, fingerprint, created, stylewalki) VALUES (1, :name, :lastname, :birthdate, :race, :skin, :userid, :fingerprint, NOW(), '')", [ 
                     "name" => $name,
                     "lastname" => $lastname,
                     "birthdate" => $birth,

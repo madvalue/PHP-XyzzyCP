@@ -39,6 +39,12 @@
 
         public function new_process(Request $request) {
             if (!$request->session()->has("id")) return redirect("login")->withErrors("Dostęp do tej sekcji mają tylko zalogowani");
+            
+            $validate_session = Accounts::validateSession($request->session());
+            if ($validate_session->success == false) {
+                if ($validate_session->logout == true) return redirect("login")->withErrors($validate_session->message);
+                else return redirect("error")->with("error_message", $validate_session->message);
+            }
 
             $characters_limit = Characters::getLimit($request->session()->get("id"));
             if ($characters_limit->success == false) return redirect("error")->with("error_message", $characters_limit->message);
@@ -106,6 +112,9 @@
 
             $details = Characters::details($char_id);
             if ($details->success ===false) return redirect("characters")->withErrors($details->message);
+
+            // Tak na serio to znaleziono, ale nie należy do użytkownika
+            if ($details->data->userid != $request->session()->get("id")) return redirect("characters")->withErrors("Nie znaleziono postaci o podanym identyfikatorze");
 
             return view("characters_details", [ "page" => "characters", "data" => $details->data ]);
         }
