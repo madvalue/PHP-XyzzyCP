@@ -26,6 +26,13 @@
                 padding: 15px 25px;
                 overflow: auto;
             }
+            @media screen and (max-width:570px) {
+                div.main {
+                    overflow: hidden;
+                    height: auto;
+                    padding: 15px 11px;
+                }
+            }
             ul.nav {
                 margin-left: -10px;
             }
