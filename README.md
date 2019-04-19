@@ -27,5 +27,9 @@ Jeśli zgodnie z zaleceniami zmieniłeś sól używaną przy procesie tworzenia 
 ### Konfiguracja panelu
 Po wrzuceniu zawartości repozytorium na swój hosting otwórz plik ``.env`` ulubionym edytorem. Zmień ustawienia DB_HOST, DB_DATABASE, DB_USERNAME i DB_PASSWORD na kolejne wartości: adres pod którym działa baza danych, nazwa bazy danych, nazwa użytkonika oraz hasło użytkownika. Dodatkowo jeśli Twoja baza danych używa niestandardowego portu, edytuj również wartość DB_PORT. Po wykonaniu tych czynności edytuj wartość APP_URL, wstawiając adres url pod którym będzie działać Twój panel. Dodatkowo, jeśli chcesz zmienić nazwę wyświetlaną w panelu, możesz edytować wartość APP_NAME, wstawiając swoją nazwę projektu (domyślnie XyzzyCP)
 
+---
+### Akceptacja kont i postaci
+Oryginalny panel XyzzyRP wymagał, by uprawniony administrator zweryfikował jego konto oraz postać, w tej wersji panelu jest to wykonywane automatycznie, a opcja weryfikacji pojawi się w przyszłych wersjach skryptu
+
 ## Wsparcie techniczne
 Jeśli podczas użytkowania panelu napotkasz problemy, skorzystaj z zakładki ``Issues`` aby zgłosić błąd. Jeśli natomiast nie radzisz sobie z jego konfiguracją, zajrzyj koniecznie na mój serwer discord (https://discord.gg/9xjQ4S) a ja postaram się Ci pomóc, możesz tam też zgłaszać swoje sugestie dotyczące rozbudowy panelu
