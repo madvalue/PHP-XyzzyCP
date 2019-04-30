@@ -32,4 +32,4 @@ Po wrzuceniu zawartości repozytorium na swój hosting otwórz plik ``.env`` ulu
 Oryginalny panel XyzzyRP wymagał, by uprawniony administrator zweryfikował jego konto oraz postać, w tej wersji panelu jest to wykonywane automatycznie, a opcja weryfikacji pojawi się w przyszłych wersjach skryptu
 
 ## Wsparcie techniczne
-Jeśli podczas użytkowania panelu napotkasz problemy, skorzystaj z zakładki ``Issues`` aby zgłosić błąd. Jeśli natomiast nie radzisz sobie z jego konfiguracją, zajrzyj koniecznie na mój serwer discord (https://discord.gg/9xjQ4S) a ja postaram się Ci pomóc, możesz tam też zgłaszać swoje sugestie dotyczące rozbudowy panelu
+Jeśli podczas użytkowania panelu napotkasz problemy, skorzystaj z zakładki ``Issues`` aby zgłosić błąd. Jeśli natomiast nie radzisz sobie z jego konfiguracją, zajrzyj koniecznie na mój serwer discord (https://discord.io/dpsoft) a ja postaram się Ci pomóc, możesz tam też zgłaszać swoje sugestie dotyczące rozbudowy panelu
